@@ -1,7 +1,7 @@
 {
   "name": "news-nextjs",
   "private": true,
-  "homepage": "https://klausdw.github.io/next.js-news-api",
+  "homepage": "https://klausdw.github.io/news-api-next.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

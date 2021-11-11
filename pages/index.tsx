@@ -44,7 +44,7 @@ interface Props {
   ]
 }
 
-const Home: NextPage = ({ data }: Props) => {
+const Home: NextPage<Props> = ({ data }: Props) => {
   // console.log(data);
 
   return (
