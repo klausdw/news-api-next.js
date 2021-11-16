@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   //   console.log(context.query);
   const search: string = params.search.toLowerCase()
   const res = await fetch(
-    `https://newsapi.org/v2/everything?q=${search}&pageSize=100&apiKey=f02e1a6900994374b4a26266442674b1`
+    `https://newsapi.org/v2/everything?q=${search}&pageSize=100&sortBy=publishedAt&apiKey=f02e1a6900994374b4a26266442674b1`
   )
   const data = await res.json()
   // console.log(data)
