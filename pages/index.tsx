@@ -34,9 +34,9 @@ interface Props {
       description: string
       url: string
       urlToImage: string
-      source: {
+      source: [{
         name: string
-      }
+      }]
       name: string
       publishedAt(): Date
     }
@@ -44,7 +44,7 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ data }: Props) => {
-  // console.log(data);
+  console.log(data);
 
   return (
     <>
@@ -83,7 +83,7 @@ const Home: NextPage<Props> = ({ data }: Props) => {
                   />
                 ) : (
                   <img
-                    className="rounded-lg mx-auto"
+                    className="w-full rounded-lg mx-auto object-cover"
                     src={urlToImage}
                     width={500}
                     height={500}
