@@ -11,18 +11,20 @@ import NavHeader from '../components/NavHeader'
  * pageSize=100 for more results, by default: 20 [results]
  */
 
-export const getServerSideProps: GetServerSideProps<Props> = async context => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const res = await fetch(
     'https://newsapi.org/v2/top-headlines?country=de&pageSize=100&apiKey=f02e1a6900994374b4a26266442674b1'
   )
-  const data = await res.json()
+  const data = await res.json();
   if (!data) {
     return {
       notFound: true,
     }
   }
-  return {
-    props: { data: data.articles },
+  return { 
+    props: { 
+      data: data.articles,
+    }, 
   }
 }
 
@@ -68,9 +70,8 @@ const Home: NextPage<Props> = ({ data }: Props) => {
             source,
             publishedAt,
           }) => (
-            <div className="p-4 bg-gray-200 rounded-xl text-left justify-center max-w-4xl">
+            <div key={id} className="p-4 bg-gray-200 rounded-xl text-left justify-center max-w-4xl">
               <a
-                key={id}
                 href={url}
                 className="rounded-xl hover:text-blue-600 focus:text-blue-600"
               >

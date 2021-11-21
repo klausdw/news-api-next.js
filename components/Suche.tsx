@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const Suche = () => {
   const [search, setSearch] = useState<string>('')
 
-  const handleChange = (e: any): void => {
-    setSearch(e.target.value)
+  const handleChange = () => {
+    // event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLFormElement | EventTarget | HTMLInputElement>) => {
+    // setSearch(event.target.value)
     console.log(search)
   }
 
@@ -17,7 +18,7 @@ const Suche = () => {
           type="text"
           placeholder="durchsuchen ... 🎯 "
           value={search}
-          onChange={handleChange}
+          onChange={(event) => { setSearch(event.target.value)}}
           required
         />
         <span className="absolute mt-2 -ml-8"> 🔎 </span>

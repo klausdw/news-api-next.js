@@ -1,5 +1,5 @@
 import NavHeader from '../components/NavHeader'
-import { GetServerSideProps, NextPage } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(
@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-const Sport: NextPage = ({ data }: any) => {
+const Sport: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   // console.log(data);
 
   return (

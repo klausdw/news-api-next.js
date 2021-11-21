@@ -15,7 +15,7 @@ const NavHeader: NextPage = () => {
       { name: 'Wirtschaft', href: '/wirtschaft', current: router.pathname === '/wirtschaft' },
     ]
     
-    function classNames(...classes: any[]) {
+    function classNames(...classes: unknown[]) {
       return classes.filter(Boolean).join(' ')
     }
 

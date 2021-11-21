@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
+import type { InferGetServerSidePropsType, NextPage } from 'next'
 import { GetServerSideProps } from 'next'
-import { useRouter } from 'next/router'
+import { Params } from 'next/dist/server/router'
 import NavHeader from '../../components/NavHeader'
 
 /**
@@ -10,11 +10,10 @@ import NavHeader from '../../components/NavHeader'
  *
  */
 
-export const getServerSideProps: GetServerSideProps = async ({
-  params,
-}: any) => {
+
+export const getServerSideProps: GetServerSideProps = async ({ params }: Params) => {
   //   console.log(context.query);
-  const search: string = params.search.toLowerCase()
+  const search = params.search.toLowerCase() as string
   const res = await fetch(
     `https://newsapi.org/v2/everything?q=${search}&pageSize=100&sortBy=publishedAt&apiKey=f02e1a6900994374b4a26266442674b1`
   )
@@ -28,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   }
 }
 
-const SearchResult: NextPage = ({ data, search }: any) => {
+const SearchResult: NextPage = ({ data, search }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   console.log(data)
   console.log(search)
 
@@ -36,7 +35,7 @@ const SearchResult: NextPage = ({ data, search }: any) => {
     <>
       <NavHeader />
       <h1 className="mt-6 mb-4 text-2xl font-bold text-center md:text-6xl">
-        {data.totalResults} treffer für "{search}"
+        {data.totalResults} treffer für {'"'} {search} {'"'} 
       </h1>
       <main className="grid grid-cols-1 justify-center w-full flex-1 px-2 text-center md:grid-cols-3 gap-2 align-top">
         {data.articles.map(
