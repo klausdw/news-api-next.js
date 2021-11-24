@@ -33,8 +33,7 @@ const SearchResult: NextPage = ({ data, search }: InferGetServerSidePropsType<ty
 
   return (
     <>
-      <NavHeader />
-      <h1>Test</h1>
+      {/* <h1>Test</h1> */}
       <h1 className="mt-6 mb-4 text-2xl font-bold text-center md:text-6xl">
         treffer für {'"'} {search} {'"'} 
       </h1>
