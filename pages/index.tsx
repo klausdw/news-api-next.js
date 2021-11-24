@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   }
 }
 
-interface Props {
+export interface Props {
   data: [
     {
       id: number
@@ -36,16 +36,15 @@ interface Props {
       description: string
       url: string
       urlToImage: string
-      source: [{
+      source: {
         name: string
-      }]
-      name: string
-      publishedAt(): Date
+      }
+      publishedAt: string
     }
   ]
 }
 
-const Home: NextPage<Props> = ({ data }: Props) => {
+const Home: NextPage<Props> = ({ data }) => {
   console.log(data);
 
   return (
@@ -54,7 +53,6 @@ const Home: NextPage<Props> = ({ data }: Props) => {
         <title>Deutschland top news !!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavHeader />
       <h1 className="mt-6 mb-4 text-4xl font-bold text-center">
         Deutschland News{' '}
       </h1>

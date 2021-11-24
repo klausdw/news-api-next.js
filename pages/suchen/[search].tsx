@@ -34,8 +34,9 @@ const SearchResult: NextPage = ({ data, search }: InferGetServerSidePropsType<ty
   return (
     <>
       <NavHeader />
+      <h1>Test</h1>
       <h1 className="mt-6 mb-4 text-2xl font-bold text-center md:text-6xl">
-        {data.totalResults} treffer für {'"'} {search} {'"'} 
+        treffer für {'"'} {search} {'"'} 
       </h1>
       <main className="grid grid-cols-1 justify-center w-full flex-1 px-2 text-center md:grid-cols-3 gap-2 align-top">
         {data.articles.map(

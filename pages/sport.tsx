@@ -1,4 +1,3 @@
-import NavHeader from '../components/NavHeader'
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -16,7 +15,6 @@ const Sport: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerS
 
   return (
     <>
-      <NavHeader />
       <h1 className="mt-6 mb-4 text-6xl font-bold text-center">Sport News</h1>
       <main className="grid grid-cols-1 justify-center w-full flex-1 px-2 text-center md:grid-cols-3 gap-2 align-top">
         {data.articles.map(
